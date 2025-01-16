@@ -1,1 +1,50 @@
-/node_modules
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Optional Vite files
+*.local
+*.pid
+
+# Temporary files
+*.log
+*.gz
+*.zip
+*.tmp
+
+# Test coverage output
+coverage/
+
+# MacOS system files
+.DS_Store
+
+# Dependency directories
+pnpm-lock.yaml
+yarn.lock
+
+# Vite cache
+.vite/
