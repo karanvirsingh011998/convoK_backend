@@ -2,9 +2,10 @@ import express from "express";
 import cors from "cors";
 import dbConnect from "./config/db.config.js";
 import authRoutes from "./routes/auth.routes.js";
+import protectedRoute from "./routes/protected.routes.js";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -29,6 +30,8 @@ app.use((req, res, next) => {
 dbConnect();
 
 app.use('/api/auth', authRoutes);
+
+app.use('/api', protectedRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
