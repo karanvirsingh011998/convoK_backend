@@ -2,6 +2,8 @@ import User from '../models/user.model.js';
 import bcrypt from 'bcrypt';
 import { saltRounds } from '../utils/constant.js';
 import jwt from 'jsonwebtoken';
+import { successMessage } from '../utils/messages/successMessage.js';
+import { errorMessage } from '../utils/messages/errorMessages.js';
 
 export const login = async (req, res) => {
     try {
@@ -14,7 +16,7 @@ export const login = async (req, res) => {
         if (!user) {
             return res.status(401).json({
                 success: false,
-                message: "User not found"
+                message: errorMessage.userNotFound
             });
         }
         const token = jwt.sign({ userId: user._id.toString() }, process.env.JWT_SECRET_KEY, {
@@ -25,7 +27,7 @@ export const login = async (req, res) => {
                 res.status(200).json({
                     success: true,
                     token: token,
-                    message: "Login successful",
+                    message: successMessage.loginSuccess,
                     user: {
                         id: user._id,
                         username: user.username,
@@ -36,7 +38,7 @@ export const login = async (req, res) => {
             else {
                 return res.status(401).json({
                     success: false,
-                    message: "Paswword does not match",
+                    message: errorMessage.passwordNotMatch,
                     error: res.message
                 });
             }
@@ -75,7 +77,7 @@ export const register = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: "User registered successfully",
+            message: successMessage.registerSuccess,
             user: {
                 id: savedUser._id,
                 username: savedUser.username,

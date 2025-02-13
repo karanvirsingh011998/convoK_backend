@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        regexp: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/,
         required: true
     }
 }, {
