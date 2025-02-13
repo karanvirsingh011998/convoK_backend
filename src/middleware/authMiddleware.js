@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { errorMessage } from '../utils/messages/errorMessages';
+import { errorMessage } from '../utils/messages/errorMessages.js';
 const verifyToken = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     if (!token) {
