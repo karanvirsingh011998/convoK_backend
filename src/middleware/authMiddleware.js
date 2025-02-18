@@ -5,7 +5,7 @@ const verifyToken = (req, res, next) => {
     if (!token) {
         return res.status(401).json({
             status: 401,
-            message: 'Access denied',
+            message: errorMessage.accessDenied,
         });
     }
     try {

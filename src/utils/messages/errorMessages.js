@@ -3,6 +3,7 @@ export const errorMessage = {
     registerSuccess: "User registered successfully",
     registerError: "User already exists",
     userNotFound: "User not found",
+    accessDenied: "Access denied",
     invalidToken: "Invalid token",
     invalidPassword: "Invalid password",
     invalidEmail: "Invalid email",
